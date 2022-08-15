@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { v4 as uuid } from 'uuid';
+import './EditTodo.css'
 
 export default function EditTodo({editId, setId, todo, setTodo, value , setValue} ) {
 
@@ -6,7 +8,7 @@ export default function EditTodo({editId, setId, todo, setTodo, value , setValue
   function saveTodo() { // в обновление состояния кидаем наш старый массив плюс новое добавляем наш новый объект  
       setTodo(
           [...todo,{
-              id: todo.length + 1,
+              id: uuid(),
               title: value,
               status: 1
           }]

@@ -1,7 +1,8 @@
 import React from 'react'
+import './Header.css'
 
 export default function Header() {
   return (
-    <div>ToDo</div>
+    <div className='Header'>TODO LIST</div>
   )
 }

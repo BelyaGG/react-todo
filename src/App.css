@@ -2,14 +2,8 @@
   text-align: center;
 }
 
-
 .Wrapper{
   display: flex;
-}
-
-.TodoList {
-  width: 20%;
-  border: 1px solid red;
 }
 
 .EditTodo {
@@ -17,26 +11,3 @@
   border: 1px solid black;
 }
 
-.TodoItem {
-  width: 100%;
-  cursor: pointer;
-}
-
-.TodoTitle {
-  margin: 15px 10px 2px 10px;
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis
-}
-
-.waitTodo {
-  background-color: gray;
-}
-
-.progressTodo {
-  background-color: aqua;
-}
-
-.endTodo {
-  background-color: green;
-}

@@ -30,7 +30,7 @@ function App() {
 
   function EdTodo (editId) { // получем от потомка id элемента которого мы выбрали для редактирования. После чего ищем его в массиве и добавлем его в переменую. После чего передаем в обновления состояние для такого что бы потом передать потомку значения для его отображения в input
       setId(editId)
-      let editTodo = todo.filter(item => item.id == editId)
+      let editTodo = todo.filter(item => item.id === editId)
       setValue(editTodo[0].title)
   }
 

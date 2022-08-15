@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './TodoList.css';
 
 export default function Todolist({todo, setTodo, idTodo}) {
 
@@ -51,7 +52,7 @@ export default function Todolist({todo, setTodo, idTodo}) {
   return (
     <div className='TodoList'>
       <div> 
-        <input placeholder='Search ToDo' value={ value } onChange={ (e) => setValue(e.target.value)} />
+        <input className='SearchInput' placeholder='Search ToDo 🍳'  value={ value } onChange={ (e) => setValue(e.target.value)} />
       </div>
       <div className='TodoItems'>
 
@@ -59,30 +60,28 @@ export default function Todolist({todo, setTodo, idTodo}) {
           value < 1 ? 
             todo.map(item =>(
               <div className='TodoItem'> 
-                <div className={`TodoTitle ${item.status === 1 ? 'waitTodo' : item.status === 2 ? 'progressTodo' : 'endTodo'}`} onClick={()=> endTodo(item.id)}> {item.title} </div> 
-                <div> {item.status}</div>
-                <button onClick={()=>deleteTodo(item.id)}>Удалить</button>
-                <button onClick={()=>editTodo(item.id)}>Редактировать</button>
+                <div className={`TodoTitle ${item.status === 1 ? 'WaitTodo' : item.status === 2 ? 'ProgressTodo' : 'EndTodo'}`} onClick={()=> endTodo(item.id)}> {item.title} </div> 
+                <button className='BtnDelete' onClick={()=>deleteTodo(item.id)}>Удалить</button>
+                <button className='BtnEdit' onClick={()=>editTodo(item.id)}>Редактировать</button>
                 {
                   item.status === 1 ?
-                    <button onClick={()=>statusTodo(item.id)}>В активность</button>:
+                    <button className='BtnStatus' onClick={()=>statusTodo(item.id)}>В активность</button>:
                   item.status === 2 ?
-                    <button onClick={()=>statusTodo(item.id)}>Снять активность</button>:
+                    <button className='BtnStatus' onClick={()=>statusTodo(item.id)}>Снять активность</button>:
                   console.log()
                 }
               </div>
             )):
             todo.filter(item => item.title.toLowerCase().includes(value.toLowerCase())).map(item => (
               <div className='TodoItem'> 
-                <div className={`TodoTitle ${item.status === 1 ? 'waitTodo' : item.status === 2 ? 'progressTodo' : 'endTodo'}`} onClick={()=> endTodo(item.id)}> {item.title} </div> 
-                <div> {item.status}</div>
-                <button onClick={()=>deleteTodo(item.id)}>Удалить</button>
-                <button onClick={()=>editTodo(item.id)}>Редактировать</button>
+                <div className={`TodoTitle ${item.status === 1 ? 'WaitTodo' : item.status === 2 ? 'ProgressTodo' : 'EndTodo'}`} onClick={()=> endTodo(item.id)}> {item.title} </div> 
+                <button className='BtnDelete' onClick={()=>deleteTodo(item.id)}>Удалить</button>
+                <button className='BtnEdit' onClick={()=>editTodo(item.id)}>Редактировать</button>
                 {
                   item.status === 1 ?
-                    <button onClick={()=>statusTodo(item.id)}>В активность</button>:
+                    <button className='BtnStatus' onClick={()=>statusTodo(item.id)}>В активность</button>:
                   item.status === 2 ?
-                    <button onClick={()=>statusTodo(item.id)}>Снять активность</button>:
+                    <button className='BtnStatus' onClick={()=>statusTodo(item.id)}>Снять активность</button>:
                   console.log()
                 }
               </div>

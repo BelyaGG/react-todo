@@ -1,0 +1,25 @@
+.EditTodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(90, 65, 114);
+}
+
+.EditTodo input {
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    border-width: 4px;
+    border-color: rgb(126, 226, 143);
+} 
+
+.EditTodo button {
+    margin-left: 10px;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(24, 153, 89);
+    border-radius: 15px;
+    border-width: 0px;
+    font-size: 20px;
+    color: white;
+}
