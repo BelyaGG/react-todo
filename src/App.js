@@ -30,7 +30,8 @@ function App() {
 
   function EdTodo (editId) {
       setId(editId)
-      setValue(todo[editId-1].title)
+      let editTodo = todo.filter(item => item.id == editId)
+      setValue(editTodo[0].title)
   }
 
   return (
