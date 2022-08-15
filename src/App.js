@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Todolist from './components/TodoList';
+import EditTodo from './components/EditTodo';
+
 
 function App() {
+
+  const [todo, setTodo] = useState([
+    {
+      id:1,
+      title: 'First todo',
+      status: 1  // ожидает
+    },
+    {
+      id:2,
+      title: 'second todo',
+      status: 2 // в процессе
+    },
+    {
+      id:3,
+      title: 'third todo',
+      status: 3  // выполнено 
+    }
+  ])
+
+  const [value, setValue] = useState('')
+  const [editId,setId] = useState('')
+
+  function EdTodo (editId) {
+      setId(editId)
+      setValue(todo[editId-1].title)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className='Wrapper'>
+        <Todolist todo={todo} setTodo={setTodo} idTodo={EdTodo}/>
+        <EditTodo editId={editId} setId={setId} todo={todo} setTodo={setTodo} value={value} setValue={setValue}/>
+      </div>
     </div>
   );
 }
