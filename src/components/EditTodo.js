@@ -3,7 +3,7 @@ import React from 'react'
 export default function EditTodo({editId, setId, todo, setTodo, value , setValue} ) {
 
 
-  function saveTodo() {
+  function saveTodo() { // в обновление состояния кидаем наш старый массив плюс новое добавляем наш новый объект  
       setTodo(
           [...todo,{
               id: todo.length + 1,
@@ -16,14 +16,14 @@ export default function EditTodo({editId, setId, todo, setTodo, value , setValue
   
 
 
-  function saveEditTodo() {
+  function saveEditTodo() { // проходимся по массиву и если совподают id то значение value заносим в item.tiile. После чего обновляем состояния 
     let newTodo = [...todo].map(item => {
       if (item.id === editId) {
         item.title = value
       }
       return item
     }) 
-    setTodo(newTodo)
+    setTodo(newTodo) 
     setValue('')
     setId('')
   }
